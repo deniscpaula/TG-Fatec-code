@@ -1,0 +1,23 @@
+<breadcrumb></breadcrumb>
+
+<section class="table-responsive">
+    <div class="table-title"><h4>Lista de tipos de chamado</h4></div>
+    <table>	
+        <thead>
+            <tr class="lista-header">
+                <th>Nome</th>
+                <th>Sigla</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="lista" *ngFor="let tipo of tipos" [routerLink]="['/cadastros/tipo-chamado/editar/', tipo.codigo]">
+                <td>{{tipo.nome}}</td>
+                <td>{{tipo.sigla}}</td>
+                <td>{{tipo.status ? "Ativo":"Inativo"}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<button class="btn-add btn-azul" type="button" [routerLink]="['/cadastros/tipo-chamado/adicionar']"> <i class="fa fa-plus fa-lg"></i> </button>

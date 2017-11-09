@@ -1,0 +1,187 @@
+// Lista de cadastros
+.lista-cadastro {
+  background: #FFFFFF;
+  margin: 5px 0;
+  padding: 20px 15px;
+}
+
+a.lista-cadastro {
+  border: 1px solid $cinza2;
+  border-radius: 4px; 
+  color: $cinza3;
+  display: inline-block;
+  overflow: hidden;
+  padding-left: 15px;
+  position: relative;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  span {
+    background: $azul;
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 5px;
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+
+// Listagens
+.lista {
+  background: white;
+  color: $cinza3;
+  cursor: pointer;
+  border-top: 1px solid $cinza2;
+  white-space: nowrap;
+}
+
+.lista:hover {
+  background: $hover;
+  -webkit-transition: none;
+  transition: none;
+}
+
+a.lista-cadastro:hover {
+  background: $cinza0;
+  color: black;
+  @include box-shadow(rgba(0,0,0,0.07) 0 0 10px);
+  padding-left: 20px;
+  transition: none;
+  -webkit-transition: none;
+
+  span {
+    width: 10px;
+  }
+}
+
+.lista-header th {
+  background: $hover;
+  color: $azul;
+}
+
+.table-title {
+  background: white;
+  color: $rosa;
+  padding: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  
+  h4 {
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px 15px;
+  }
+}
+
+.inativo, .inativo td span {
+    background: #fff2f2 !important;
+    color: #d4b4b4 !important;
+}
+
+.finalizado, .finalizado td span {
+    background: #e3f3e9 !important;
+    color: #acceb2 !important;
+}
+
+// Tabelas
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+  white-space: nowrap;
+}
+
+tr:nth-child(even) {
+  background-color: $cinza0;
+}
+
+tr:nth-child(odd) {
+  background-color: white;
+}
+
+th, td {
+  text-align: left;
+}
+
+table>tbody>tr>td,
+table>tbody>tr>th,
+table>tfoot>tr>td,
+table>tfoot>tr>th,
+table>thead>tr>td,
+table>thead>tr>th {
+    padding: 20px 15px;
+}
+
+.table-responsive {
+  background: white;
+  border: 1px solid $cinza2;
+  border-radius: 7px;
+  box-shadow: rgba(0,0,0,0.04) 1px 3px 4px;
+  display: block;
+  margin: 25px 2em;
+  overflow-x: auto;
+  position: relative;
+  width: auto;
+
+  td > i {
+    cursor: pointer;
+    color: $roxo;
+  }
+
+  tr:first-child {
+    border-top: 1px solid $cinza2;
+  }
+}
+
+
+@media(max-width: 480px) {
+  .table-responsive {
+    margin: 4%;
+  }
+}
+
+
+
+// Pesquisar
+[type="search"] {
+  background: white;
+  border: none;
+  border-bottom: 1px solid $cinza2;
+  border-radius: 0;
+  @include box-shadow(rgba(0, 0, 0, 0.03) 2px 2px 10px);
+  color: $cinza3;
+  padding: 20px 25px;
+  width: 100%;
+}
+
+[type="search"]:focus {
+  background: $cinza0;
+  border: none;
+  border-bottom: 1px solid $cinza2;
+  color: black;
+  outline: 0;
+  @include box-shadow(rgba(0, 0, 0, 0.03) 2px 2px 10px);
+}
+
+.pesquisar input {
+    margin: 0;
+}
+
+.pesquisar > ul, .pesquisar > ul > li {
+  width: 100%;
+}
+
+.pesquisar label {
+    color: $azul;
+    cursor: text;
+    padding: 17px;
+    position: absolute;
+    right: 10px;
+}

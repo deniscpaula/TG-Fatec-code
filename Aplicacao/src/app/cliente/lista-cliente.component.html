@@ -1,0 +1,27 @@
+<breadcrumb></breadcrumb>
+
+<section class="table-responsive">
+    <div class="table-title"><h4>Lista de clientes</h4></div>
+    <table>	
+        <thead>
+            <tr class="lista-header">
+                <th>Nome Fantasia</th>
+                <th class="mobile-off">Telefone</th>
+                <th>Email</th>
+                <th class="mobile-off">CNPJ</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="lista" *ngFor="let cliente of clientes" [routerLink]="['/cadastros/cliente/editar/', cliente.codigo]">
+                <td>{{cliente.nomeFantasia}}</td>
+                <td class="mobile-off">{{cliente.telefone}}</td>
+                <td>{{cliente.email}}</td>
+                <td class="mobile-off">{{cliente.cnpj}}</td>
+                <td>{{cliente.status ? "Ativo":"Inativo"}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<button class="btn-add btn-azul" type="button" [routerLink]="['/cadastros/cliente/adicionar']"> <i class="fa fa-plus fa-lg"></i> </button>

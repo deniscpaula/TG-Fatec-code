@@ -1,0 +1,58 @@
+<nav class="pesquisar">
+    <ul>
+        <li>
+            <label for="search"><i class="fa fa-search fa-lg"></i></label>
+            <input #busca id="search"
+                placement="bottom" 
+                [ngbTooltip]="'Pesquise separando os itens por (,) vírgula. Utilize o sinal de subtração (-) antes da palavra para excluí-la da pesquisa.'"
+                (keyup)="0" type="search" 
+                placeholder="Pesquisar - Ex.: cliente, - prioridade, - 04/05/2017">
+        </li>
+    </ul>
+</nav>
+
+<section class="table-responsive">
+    <div class="table-title"><h4>Chamados</h4></div>
+
+    <div class="filtro-finalizados center-xs">
+        <div class="toggle col-xs-12 row middle-xs center-xs">
+            <label class="switch">
+                <input id="status" type="checkbox" name="status" (change)="listar()" [(ngModel)]="status">
+                <div class="slider"></div>
+            </label>
+            <span>Finalizados</span>
+        </div>
+    </div>
+
+    <table>	
+        <thead>
+            <tr class="lista-header">
+                <th class="">Código</th>
+                <th class="">Assunto</th>
+                <th class="">Prioridade</th>
+                <th class="">Prazo</th>
+                <th class="mobile-off">Processo</th>
+                <th class="">Tipo</th>
+                <th class="mobile-off">Cliente</th>
+                <th class="center-xs">Histórico</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let chamado of chamados | filtroChamado: busca.value" placement="top" 
+                [ngbTooltip]="chamado.cliente ? chamado.cliente.status ? '' : 'Cliente inativo' : ''" class="lista {{!status ? (chamado.cliente ? chamado.cliente.status ? '' : 'inativo' : '') : 'finalizado'}}"
+                [routerLink]="['/chamados/detalhar/', chamado.codigoInterno]">
+
+                <td class="">#{{ chamado.codigoInterno }}</td>
+                <td class="">{{ chamado.assunto }}</td>
+                <td class=""><span [style.color]="chamado.prioridade?.cor">{{ chamado.prioridade.nome }}</span></td>
+                <td class="">{{ chamado.prazo ? helper.format(chamado.prazo) : 'Não informado' }}</td>
+                <td class="mobile-off"><span [style.color]="chamado.processo?.cor">{{ chamado.processo ? chamado.processo.nome : 'Não informado' }}</span></td>
+                <td class="">{{ chamado.tipo ? chamado.tipo.nome : 'Não informado' }}</td>
+                <td class="mobile-off">{{ chamado.cliente ? chamado.cliente.nomeFantasia : 'Não informado' }}</td>
+                <td class="center-xs"><i class="fa fa-history fa-lg" [ngbTooltip]="'Ir para o histórico'" [routerLink]="['/chamados/historico/', chamado.codigoInterno]"></i></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<button class="btn-add btn-azul" type="button" [routerLink]="['/chamados/adicionar']"> <i class="fa fa-plus fa-lg"></i> </button>

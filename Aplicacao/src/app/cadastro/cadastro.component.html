@@ -1,0 +1,38 @@
+<section class="content center-md">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 center-xs">
+        
+        <h1><span class="title">Cadastre-se</span></h1>
+        
+        <form action="#" method="post" accept-charset="utf-8" (submit)="salvar($event)">
+            <div class="row start-xs">
+                <div class="col-xs-12 center-xs">
+                    <alerta [alerta]="alerta"></alerta>
+                </div>
+
+                <div class="col-xs-12 start-xs">
+                    <label for="nome">Nome <i class="fa fa-asterisk obgt"></i></label>
+                    <input type="text" id="nome" name="nome" placeholder="Nome" [(ngModel)]="colaborador.nome"> 
+                </div>
+
+                <div class="col-xs-12">
+                    <label for="email">Email <i class="fa fa-asterisk obgt"></i></label>
+                    <input type="email" id="email" name="email" placeholder="Email" [(ngModel)]="colaborador.usuario.email"> 
+                </div>
+                
+                 <div class="col-xs-12">
+                     <label for="senha">Senha <i class="fa fa-asterisk obgt"></i></label>
+                    <input type="password" id="senha" name="senha" placeholder="Senha" [(ngModel)]="colaborador.usuario.senha">
+                </div>
+                
+                <div class="col-xs-12">
+                    <label for="nomeFantasia">Nome fantasia <i class="fa fa-asterisk obgt"></i></label>
+                    <input type="text" id="nomeFantasia" name="nomeFantasia" placeholder="Nome da empresa" [(ngModel)]="colaborador.empresa.nomeFantasia">
+                </div>
+
+                <div class="col-xs-12 center-xs">
+                    <button class="btn-fluid btn-azul">Cadastrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

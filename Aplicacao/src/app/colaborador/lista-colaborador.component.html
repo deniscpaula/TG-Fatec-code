@@ -1,0 +1,29 @@
+<breadcrumb></breadcrumb>
+
+<section class="table-responsive">
+    <div class="table-title"><h4>Lista de colaboradores</h4></div>
+    <table>	
+        <thead>
+            <tr class="lista-header">
+                <th>Nome</th>
+                <th class="mobile-off">Apelido</th>
+                <th class="mobile-off">Email</th>
+                <th>Cargo</th>
+                <th class="mobile-off">Gestor</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="lista" *ngFor="let colaborador of colaboradores" [routerLink]="['/cadastros/colaborador/editar/', colaborador.codigo]">
+                <td>{{colaborador?.nome}}</td>
+                <td class="mobile-off">{{colaborador?.apelido}}</td>
+                <td class="mobile-off">{{colaborador.usuario.email}}</td>
+                <td>{{colaborador.cargo?.nome}}</td>
+                <td class="mobile-off">{{colaborador.administrador ? 'Sim':'Não'}}</td>
+                <td>{{colaborador.usuario.status ? "Ativo":"Inativo"}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<button class="btn-add btn-azul" type="button" [routerLink]="['/cadastros/colaborador/adicionar']"> <i class="fa fa-plus fa-lg"></i> </button>

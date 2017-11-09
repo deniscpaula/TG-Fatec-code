@@ -1,0 +1,23 @@
+<breadcrumb></breadcrumb>
+
+<section class="table-responsive">
+    <div class="table-title"><h4>Lista de cargos</h4></div>
+    <table>	
+        <thead>
+            <tr class="lista-header">
+                <th>Nome</th>
+                <th class="mobile-off">Descrição</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="lista" *ngFor="let cargo of cargos" [routerLink]="['/cadastros/cargo/editar', cargo.codigo]">
+                <td>{{cargo.nome}}</td>
+                <td class="mobile-off">{{cargo.descricao}}</td>
+                <td>{{cargo.status ? "Ativo":"Inativo"}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<button class="btn-add btn-azul" type="button" [routerLink]="['/cadastros/cargo/adicionar']"> <i class="fa fa-plus fa-lg"></i> </button>

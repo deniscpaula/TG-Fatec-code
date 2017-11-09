@@ -1,0 +1,259 @@
+input, textarea {
+  border-radius: 4px;
+  //border: none;
+  border: 1px solid $cinza2;
+  margin-bottom: 15px;
+  padding: 15px;
+  width: 100%;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;
+  //-webkit-appearance: none;
+}
+
+input:focus, textarea:focus {
+  border: 1px solid $azul;
+  background: white;
+  outline: 0;
+  -webkit-appearance: none;
+  @include box-shadow(rgba(0,0,0,0.1) 0 0 15px);
+}
+
+label {
+  margin-bottom: 7px;
+  display: block;
+  color: $cinza3;
+}
+
+.obgt {
+  font-size: 0.4rem;
+  color: $vermelho;
+  top: -1em;
+  position: relative;
+}
+
+.btn {
+   color: white;
+   font-size: 0.65rem;
+   text-transform: uppercase; 
+   @include box-shadow(rgba(0, 0, 0, 0.1) 3px 5px 3px);
+
+   i {
+     margin-right: 5px;
+   }
+}
+
+.btn-azul, .btn-vermelho, .btn-roxo, .btn-verde {
+   @extend .btn;
+}
+// Botões
+.btn-azul {
+   background: $azul;
+   @extend .btn;
+}
+.btn-azul:hover {
+  background: darken($azul, 5%);
+}
+
+.btn-vermelho {
+   background: $vermelho;
+}
+.btn-vermelho:hover {
+   background: darken($vermelho, 5%);
+}
+
+.btn-roxo {
+   background: $roxo;
+}
+.btn-roxo:hover {
+   background: darken($roxo, 5%);
+}
+
+.btn-verde {
+   background: $verde;
+}
+.btn-verde:hover {
+   background: darken($verde, 5%);
+}
+
+.btn-fluid {
+  width: 100%;
+}
+
+.excluir {
+  color: $vermelho;
+  cursor: pointer;
+}
+
+.btn-add {
+  border-radius: 50%;
+  bottom: 35px;
+  box-shadow: rgba(70,145,255,0.5) 2px 2px 15px;
+  display: block;
+  height: 50px;
+  padding: 10px;
+  position: fixed;
+  right: 35px;
+  width: 50px;
+}
+
+.btn-add-cadastro {
+  background: white;
+  border: 1px solid $cinza2;
+  border-radius: 4px; 
+  color: $azul;
+  display: inline-block;
+  margin: 5px -15px 5px 1%;
+  padding: 20px 20px;
+}
+
+.btn-add-cadastro:hover {
+  background: $cinza0;
+  color: black;
+  @include box-shadow(rgba(0,0,0,0.07) 0 0 10px);
+  -webkit-transition: none;
+  transition: none;
+}
+
+.btn-add-cadastro i, .btn-add i {
+  margin: 0;
+}
+
+select {
+    height: 45px;
+    border: 1px solid #ededed;
+    background: white;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+// Selectize
+.selectize-control {
+  margin-bottom: 15px;
+  padding: 0;
+  text-align: left;
+}
+
+.selectize-input {
+  border: 1px solid $cinza2;
+  height: 45px;
+  padding: 12px 15px;
+}
+
+.selectize-input.focus {
+  border: 1px solid $azul;
+  @include box-shadow(rgba(0,0,0,0.07) 0 0 10px);
+}
+
+.selectize-input > input[placeholder],
+.selectize-input > .items > .has-options > .not-full,
+.selectize-input > .items > .has-options > .full > .has-items {
+  width: 100% !important;
+}
+
+.selectize-dropdown {
+  border: 1px solid $cinza2;
+  border-radius: 4px;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  @include box-shadow(rgba(0,0,0,0.07) 0 0 10px);
+}
+
+.selectize-dropdown-content {
+  max-height: 160px;
+  //padding: 0;
+}
+
+.selectize-dropdown [data-selectable] {
+  padding: 6px 12px;
+}
+
+@media(max-width: 480px) {
+  .selectize-input,
+  .selectize-dropdown [data-selectable] {
+    font-size: 16px;
+  }
+  .selectize-dropdown [data-selectable] {
+    padding: 10px 12px;
+  }
+
+  label {
+    font-size: 12px;
+  }
+}
+// Fim selectize
+
+
+// Toggle
+.toggle {
+  background: $cinza2;
+  border-radius: 4px;
+  border: 1px solid #e6e6e6;
+  margin: 0;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  height: 24px;
+  margin: 10px 0.35em 9px;
+  width: 46px;
+  
+  input {
+    height: auto;
+    visibility: hidden;
+  }
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $cinza3;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 12px;
+  
+  &:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+  }
+}
+
+
+input:checked + .slider {
+  background-color: $verde;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(21px);
+  -ms-transform: translateX(21px);
+  transform: translateX(21px);
+}
+// Fim toggle
+
+
+.filtro-finalizados {
+    position: absolute;
+    max-width: 300px;
+    display: block;
+    padding: 7px;
+    right: 0;
+    top: 0;
+
+    @media (max-width: 640px) {
+      position: relative;
+      min-width: 100%;
+    }
+}

@@ -1,0 +1,46 @@
+<breadcrumb></breadcrumb>
+
+<section class="content center-sm">
+    <div class="col-sm-10 col-sm-offset-1 center-xs">
+        
+        <titulo titulo="{{!produto.codigo ? 'Novo produto' : 'Editar produto'}}"></titulo>
+        
+        <form action="#" method="post" accept-charset="utf-8" (submit)="salvar($event)">
+            <div class="row col-md-10 col-md-offset-1 start-xs">
+                <div class="col-sm-9 col-xs-12">
+                    <label for="nome">Nome <i class="fa fa-asterisk obgt"></i></label>
+                    <input id="nome" type="text" name="nome" placeholder="Nome" [(ngModel)]="produto.nome">
+                </div>
+
+                <div class="col-sm-3 col-xs-12 center-xs">
+                    <label for="status">Status</label>
+                    <div class="toggle col-xs-12 row middle-xs center-xs">
+                        <span>Inativo</span>
+                        <label class="switch">
+                            <input id="status" type="checkbox" name="status" [(ngModel)]="produto.status">
+                            <div class="slider"></div>
+                        </label>
+                        <span>Ativo</span>
+                    </div>
+                </div>
+                
+                <div class="col-sm-12 col-xs-12">
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" name="descricao" placeholder="Descrição" rows="5" [(ngModel)]="produto.descricao"></textarea>
+                </div>
+
+                <div class="col-xs-12 end-xs">
+                    <span class="excluir fl" (click)="excluir($event)" *ngIf="produto.codigo">
+                        <i class="fa fa-times fa-lg"></i> Excluir
+                    </span>
+
+                    <button class="btn-azul"><i class="fa fa-floppy-o fa-lg"></i>Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<button *ngIf="produto.codigo" class="btn-add btn-azul" type="button" [routerLink]="['/cadastros/produto/adicionar']"> <i class="fa fa-plus fa-lg"></i> </button>
+
+<alerta [alerta]="alerta"></alerta>

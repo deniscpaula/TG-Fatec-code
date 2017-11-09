@@ -1,0 +1,92 @@
+<section class="content center-md">
+    <div class="row col-md-10 col-md-offset-1 center-xs">
+        
+        <titulo titulo="Chamado #{{chamado.codigoInterno}}"></titulo>
+        
+        <form action="#" method="post" accept-charset="utf-8" (submit)="salvar($event)">
+            <div class="row col-sm-10 col-sm-offset-1 start-xs">
+                <div class="col-sm-9 col-xs-12">
+                    <label for="assunto">Assunto <i class="fa fa-asterisk obgt"></i></label>
+                    <input id="assunto" type="text" name="assunto" placeholder="Assunto" [(ngModel)]="chamado.assunto">
+                </div>
+
+                <div class="col-sm-3 col-xs-12">
+                    <label for="prazo">Prazo</label>
+                    <input id="prazo" type="text" name="prazo" placeholder="Prazo" 
+                        [textMask]="{mask: inputMask.dateMask}" 
+                        [ngModel]="helper.format(chamado.prazo)"
+                        (change)="setPrazo($event.target.value)">
+                </div>
+
+                <div class="col-sm-12 col-xs-12">
+                    <label for="descricao">Descrição <i class="fa fa-asterisk obgt"></i></label>
+                    <textarea id="descricao" name="descricao" placeholder="Descrição" rows="5" [(ngModel)]="chamado.descricao"></textarea>
+                </div>
+
+                <div class="col-sm-4 col-xs-12">
+                    <label for="prioridade">Prioridade <i class="fa fa-asterisk obgt"></i></label>
+                    <select id="prioridade" name="prioridade" [(ngModel)]="chamado.prioridade.codigo">
+                        <option [value]="chamado.prioridade.codigo == null ? chamado.prioridade.codigo:''">Selecione</option>
+                        <option *ngFor="let p of prioridades" [value]="p.codigo">{{p.nome}}</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-4 col-xs-12">
+                    <label for="processo">Processo</label>
+                    <select id="processo" name="processo" [(ngModel)]="chamado.processo.codigo">
+                        <option [value]="chamado.processo.codigo == null ? chamado.processo.codigo:''">Selecione</option>
+                        <option *ngFor="let p of processos" [value]="p.codigo">{{p.nome}}</option>	
+                    </select>
+                </div>
+
+                <div class="col-sm-4 col-xs-12">
+                    <label for="tipo">Tipo</label>
+                    <select id="tipo" name="tipo" [(ngModel)]="chamado.tipo.codigo">
+                        <option [value]="chamado.tipo.codigo == null ? chamado.tipo.codigo:''">Selecione</option>
+                        <option *ngFor="let t of tipos" [value]="t.codigo">{{t.nome}}</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-6 col-xs-12">
+                    <label for="produto">Produto</label>
+                    <select id="produto" name="produto" [(ngModel)]="chamado.produto.codigo">
+                        <option [value]="chamado.produto.codigo == null ? chamado.produto.codigo:''">Selecione</option>
+                        <option *ngFor="let p of produtos" [value]="p.codigo">{{p.nome}}</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-6 col-xs-12">
+                    <label for="cliente">Cliente</label>
+                    <select id="cliente" name="cliente" [(ngModel)]="chamado.cliente.codigo">
+                        <option [value]="chamado.cliente.codigo == null ? chamado.cliente.codigo:''">Selecione</option>
+                        <option *ngFor="let c of clientes" [value]="c.codigo">{{c.nomeFantasia}}</option>
+                    </select>
+                </div>
+
+                <div class="col-xs-12">
+                    <label for="responsavel">Responsável</label>
+                    <select id="responsavel" name="responsavel" [(ngModel)]="chamado.responsavel.codigo">
+                        <option [value]="chamado.responsavel.codigo == null ? chamado.responsavel.codigo:''">Selecione</option>
+                        <option *ngFor="let r of responsaveis" [value]="r.codigo">{{r.nome}}</option>
+                    </select>
+                </div>
+
+                <div class="col-xs-12 end-xs">
+                    <button class="btn-verde fl" type="button" 
+                        (click)="finalizar()">
+                        <i class="fa fa-check fa-lg"></i>Finalizar
+                    </button>
+                    <button class="btn-roxo" type="button" 
+                        [routerLink]="['/chamados/historico/', chamado.codigoInterno]">
+                        <i class="fa fa-history fa-lg"></i>Histórico
+                    </button>
+                    <button class="btn-azul" type="">
+                        <i class="fa fa-floppy-o fa-lg"></i>Salvar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<alerta [alerta]="alerta"></alerta>

@@ -1,0 +1,201 @@
+/* -------- Header -------- */
+nav.menu {
+  padding: 0;
+}
+.menu {
+  border-bottom: 1px solid $cinza2;
+}
+nav ul li a, 
+.menu ul li a {
+  color: $cinza3;
+  display: inline-block;
+  font-size: 1rem;
+  padding: 1em 0;
+  position: relative;
+}
+
+nav ul li a.menu-active,
+.menu ul li a.menu-active {
+  color: $azul;
+  text-decoration: none;
+}
+
+.menu ul li a:hover,
+.menu a:not([href]):not([tabindex]):hover {
+  color: $roxo;
+}
+
+.header {
+  background: white;
+}
+.menu-icon, .menu-icon-border {
+  border-color: transparent;
+  border-bottom-color: $cinza1;
+  border-style: dashed dashed solid;
+  border-width: 0 10px 10px;
+  display: none;
+  position: absolute;
+  margin-right: 20px;
+  right: 50%;
+  top: 52px;
+  z-index: 100;
+}
+.menu-icon-border {
+  border-bottom-color: $cinza2;
+  top: 51px;
+  z-index: 10;
+}
+.menu-options {
+    background: #fff;
+    border: 1px solid $cinza2;
+    border-radius: 7px; 
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 15px;
+    display: none;
+    max-width: 170px;
+    position: absolute;
+    right: 31px;
+    top: 75px;
+    width: 100%;
+    z-index: 1;
+
+    ul li a {
+      cursor: pointer;
+      padding: 10px 15px;
+    }
+    ul li :hover {
+      background: $cinza1;
+    }
+    .myself {
+      border-top-left-radius: 7px;
+      border-top-right-radius: 7px;
+      cursor: default;
+      font-size: 1rem;
+      padding: 10px 15px;
+    }
+    .myself, nav, ul, li, a {
+      width: 100%;
+      text-align: right;
+    }
+    .myself, ul li:first-child {
+      border-bottom: 1px solid $cinza2;
+    }
+    .myself {
+      background: $cinza1;
+    }
+}
+
+.menu ul li a {
+  padding-right: 0.75em;
+}
+a.brand {
+	color: $azul !important;
+	font-size: 1.5rem !important;
+	font-weight: bold;
+}
+
+// Menu mobile
+a.brand.collapse {
+	display: none;
+}
+.burger {
+  display: none;
+  cursor: pointer;
+  padding: 20px 20px;
+  position: absolute;
+  top: -4px;
+  right: 0px;
+}
+.collapsed {
+  @extend .menu-options;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 15px;
+  display: none;
+  right: 13px;
+  top: 66px;
+  ul li {
+    border-bottom: 1px solid $cinza2;
+  }
+  ul li:last-child {
+    border: none;
+  }
+  ul li:first-child {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+  }
+}
+
+.collapsed i {
+    display: none;
+}
+
+#patty {
+  background: $azul;
+  border-radius: 2px;
+  display: inline-block;
+  height: 3px;
+  top: 20px;
+}
+#patty:before, #patty:after {
+  content: "";
+  display: block;
+  position: relative;
+  height: 3px;
+  background: $azul;
+  border-radius: 2px;
+  left: 0;
+  width: 21px;
+}
+#patty:after {
+    bottom: -4px;
+}
+#patty:before {
+    top: -7px;
+}
+
+@media(max-width: 640px) {
+  .menu > ul > li {
+    width: 100%;
+  }
+  .menu-options {
+    display: none;
+  }
+  nav ul li a, .menu ul li a {
+    //border-bottom: 1px dashed $cinza1;
+    padding: 0.5em 0;
+    width: 100%;
+  }
+
+  nav ul li:last-child a {
+    border: none;
+  }
+
+  .menu ul li a.brand {
+    padding-top: 1em;
+  }
+
+  .menu-collapse {
+    border-bottom: 1px solid $cinza2;
+  }
+  .collapsed ul, .collapsed ul li {
+    display: block;
+    width: 100%;
+  }
+
+  a.brand.collapse {
+    color: $azul !important;
+    display: block;
+    font-size: 1.5rem !important;
+    font-weight: bold;
+    margin: 15px 15px;
+  }
+  header {
+    font-size: 16px;
+  }
+  .burger {
+    display: inline-block;
+  }
+  .menu {
+    display: none !important;
+  }
+}

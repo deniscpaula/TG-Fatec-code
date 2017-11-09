@@ -1,0 +1,23 @@
+<breadcrumb></breadcrumb>
+
+<section class="table-responsive">
+    <div class="table-title"><h4>Lista de produtos</h4></div>
+    <table>	
+        <thead>
+            <tr class="lista-header">
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="lista" *ngFor="let produto of produtos" [routerLink]="['/cadastros/produto/editar/', produto.codigo]">
+                <td>{{produto.nome}}</td>
+                <td>{{produto.descricao}}</td>
+                <td>{{produto.status ? "Ativo":"Inativo"}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<button class="btn-add btn-azul" type="button" [routerLink]="['/cadastros/produto/adicionar']"> <i class="fa fa-plus fa-lg"></i> </button>

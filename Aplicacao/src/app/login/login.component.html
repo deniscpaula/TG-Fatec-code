@@ -1,0 +1,25 @@
+<section class="content center-md">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 center-xs login">
+        
+        <h1><span class="title">DevOps</span></h1>
+        
+        <form action="#" method="post" accept-charset="utf-8" (submit)="login($event)">
+            <div class="row center-xs">
+                <div class="col-xs-12 center-xs">
+                    <alerta [alerta]="alerta" *ngIf="alerta.mensagem"></alerta>
+                </div>
+                <div class="col-xs-12 center-xs">
+                    <input type="email" id="email" name="email" placeholder="email" [(ngModel)]="usuario.email"> 
+                </div>
+                
+                 <div class="col-xs-12 center-xs">
+                    <input type="password" id="senha" name="senha" placeholder="Senha" [(ngModel)]="usuario.senha">
+                </div>
+
+                <div class="col-xs-12 center-xs">
+                    <button class="btn-fluid btn-azul">Acessar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

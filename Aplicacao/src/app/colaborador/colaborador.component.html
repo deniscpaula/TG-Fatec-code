@@ -1,0 +1,79 @@
+<breadcrumb></breadcrumb>
+
+<section class="content center-sm">
+    <div class="col-sm-10 col-sm-offset-1 center-xs">
+        
+        <titulo titulo="{{!colaborador.codigo ? 'Novo colaborador' : 'Editar colaborador'}}"></titulo>
+        
+        <form action="#" method="post" accept-charset="utf-8" (submit)="salvar($event)">
+            <div class="row col-md-10 col-md-offset-1 start-xs">
+                <div class="col-sm-6 col-xs-12">
+                    <label for="nome">Nome <i class="fa fa-asterisk obgt"></i></label>
+                    <input id="nome" type="text" name="nome" placeholder="Nome" [(ngModel)]="colaborador.nome">
+                </div>
+
+                <div class="col-sm-3 col-xs-6 center-xs">
+                    <label for="administrador">Gestor</label>
+                    <div class="toggle col-xs-12 row middle-xs center-xs">
+                        <span>Não</span>
+                        <label class="switch">
+                            <input id="administrador" type="checkbox" name="administrador" [(ngModel)]="colaborador.administrador">
+                            <div class="slider"></div>
+                        </label>
+                        <span>Sim</span>
+                    </div>
+                </div>
+
+                <div class="col-sm-3 col-xs-6 center-xs">
+                    <label for="status">Status</label>
+                    <div class="toggle col-xs-12 row middle-xs center-xs">
+                        <span>Inativo</span>
+                        <label class="switch">
+                            <input id="status" type="checkbox" name="status" [(ngModel)]="colaborador.usuario.status">
+                            <div class="slider"></div>
+                        </label>
+                        <span>Ativo</span>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-xs-12">
+                    <label for="apelido">Apelido</label>
+                    <input id="apelido" type="text" name="apelido" placeholder="Apelido" [(ngModel)]="colaborador.apelido">
+                </div>
+
+                <div class="col-sm-6 col-xs-12">
+                    <label for="cpf">CPF</label>
+                    <input id="cpf" type="text" name="cpf" placeholder="CPF" [textMask]="{mask: inputMask.cpfMask}" [(ngModel)]="colaborador.cpf">
+                </div>
+
+                <div class="col-sm-6 col-xs-12">
+                    <label for="email">Email <i class="fa fa-asterisk obgt"></i></label>
+                    <input id="email" type="text" name="email" placeholder="Email" [(ngModel)]="colaborador.usuario.email">
+                </div>
+
+                <div class="col-sm-6 col-xs-12" >
+                    <label for="cargo">Cargo</label>
+                    <select id="cargo" name="cargo" [(ngModel)]="colaborador.cargo.codigo">
+                        <option [value]="colaborador.cargo.codigo == null ? colaborador.cargo.codigo:false">Selecione um cargo</option>
+                        <option *ngFor="let cargo of cargos" [value]="cargo.codigo">{{cargo.nome}}</option>
+                    </select>
+                </div>                
+
+
+                <div class="col-xs-12 end-xs">
+                    <span class="excluir fl" (click)="excluir($event)" *ngIf="colaborador.codigo">
+                        <i class="fa fa-times fa-lg"></i> Excluir
+                    </span>
+
+                    <button class="btn-roxo" type="button" *ngIf="colaborador.codigo && colaborador.email"><i class="fa fa-send-o fa-lg"></i>Reenviar email</button>
+
+                    <button class="btn-azul"><i class="fa fa-floppy-o fa-lg"></i>Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<button *ngIf="colaborador.codigo" class="btn-add btn-azul" type="button" [routerLink]="['/cadastros/colaborador/adicionar']"> <i class="fa fa-plus fa-lg"></i> </button>
+
+<alerta [alerta]="alerta"></alerta>

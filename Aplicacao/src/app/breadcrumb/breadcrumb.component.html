@@ -1,0 +1,7 @@
+<ol class="breadcrumb">
+    <li *ngFor="let link of url">
+        <a *ngIf="isLast(link)">{{ link }}</a>
+        <a *ngIf="!isLast(link)" [routerLink]="getPath(link)">{{ link }}</a>
+        <span *ngIf="!isLast(link)"><i class="fa fa-angle-double-right"></i></span>
+    </li>
+</ol>

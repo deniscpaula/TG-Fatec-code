@@ -1,0 +1,27 @@
+ol.breadcrumb {
+  background: white;
+  border: 1px solid $cinza2;
+  color: $cinza3;
+  margin: 25px 2em;
+  padding: 15px;
+}
+
+.breadcrumb li:first-child a {
+  margin-left: 0;
+}
+
+.breadcrumb li a {
+  color: $azul;
+  margin: 0 10px;
+}
+
+@media(max-width: 480px) {
+  ol.breadcrumb {
+    margin: 4%;
+  }
+
+  .breadcrumb li a {
+    margin: 0 7px;
+    font-size: 13px;
+  }
+}

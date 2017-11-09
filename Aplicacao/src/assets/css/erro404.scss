@@ -1,0 +1,23 @@
+.erro404 {
+    min-height: 480px;
+    padding: 60px;
+
+    i.icon {
+        color: $cinza4;
+        font-size: 7rem;
+        margin: 25px;
+    }
+    span {
+        font-size: 1rem;
+    }
+    p {
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin: 0;
+        text-transform: uppercase;
+    }
+    ul li {
+        margin: 10px;
+    }
+}
+

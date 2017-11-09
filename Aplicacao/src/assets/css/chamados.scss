@@ -1,0 +1,39 @@
+/* -------- Chamados ------- */
+.descricao {
+  background: #FFFFFF;
+  padding: 50px 0;
+  line-height: 2em;
+}
+
+.data {
+  color: $cinza3;
+  font-size: 12px;
+  padding: 15px !important;
+  text-align: right;
+}
+
+.historico-linha .row {
+  margin: 25px auto;
+  line-height: 1.5em;
+}
+
+.historico {
+  background: #fff;
+  padding: 24px 20px !important;
+
+  .title {
+    margin: 0 0 5px;
+  }
+}
+
+@media(max-width: 1023px) {
+  .descricao {
+    padding: 25px;
+  }
+}
+
+@media(max-width: 767px) {
+  .data {
+    text-align: center;
+  }
+}

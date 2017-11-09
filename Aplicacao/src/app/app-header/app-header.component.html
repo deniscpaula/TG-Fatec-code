@@ -1,0 +1,87 @@
+<div class="header" *ngIf="urlAtiva('404')">
+    <header class="col-xs-12"> 
+        <!-- Menu Login -->
+        <div class="row middle-xs content-h">
+            <nav class="col-xs-6 start-xs">
+                <ul>
+                    <li><a class="brand">DevOps</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</div>
+
+<div class="header" *ngIf="!urlAtiva('404')">
+    <header class="col-xs-12"> 
+        <!-- Menu Login -->
+        <div class="row middle-xs content-h"  *ngIf="login">
+            <nav class="col-xs-6 start-xs">
+                <ul>
+                    <li><a (click)="logout()" title="" class="brand">DevOps</a></li>
+                </ul>
+            </nav>
+
+            <nav class="col-xs-6 end-xs">
+                <ul>
+                    <li><a *ngIf="url === '/'" [routerLink]="['/cadastro']">Cadastre-se</a></li>
+                    <li><a *ngIf="url === '/cadastro'" [routerLink]="['/']">Acessar</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Fim menu Login -->
+
+
+        <!-- Menu full -->
+        <div class="row middle-xs content-h menu" *ngIf="!login">
+            <nav class="col-xs-9 start-xs">
+                <ul>
+                    <li><a (click)="logout()" title="" class="brand">DevOps</a></li>
+                    <li><a [routerLink]="['/chamados']" [class.menu-active]="urlAtiva('chamados')">Chamados</a></li>
+                    <li><a *ngIf="colaborador?.administrador" [routerLink]="['/cadastros']" [class.menu-active]="urlAtiva('cadastro')">Cadastro</a></li>
+                </ul>
+            </nav>
+
+            <nav class="col-xs-3 end-xs">
+                <ul>
+                    <li>
+                        <a id="user-dropdown">
+                            <i class="fa fa-user-circle-o fa-lg"></i> {{ colaborador?.apelido ? colaborador?.apelido : "Usuário" }}
+                            <div class="menu-icon-border"></div>
+                            <div class="menu-icon"></div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Fim menu full -->
+
+
+        <!-- Menu mobile -->
+        <div class="row menu-collapse" *ngIf="!login">
+            <a [routerLink]="['/']" title="" class="brand collapse">DevOps</a>
+            <a class="burger">
+                <span id="patty"></span>
+            </a>
+
+            <nav class="collapsed">
+                <ul>
+                    <li><a [routerLink]="['/chamados']" [class.menu-active]="urlAtiva('chamados')">Chamados</a></li>
+                    <li><a *ngIf="colaborador?.administrador" [routerLink]="['/cadastros']" [class.menu-active]="urlAtiva('cadastro')">Cadastro</a></li>
+                    <li><a [routerLink]="['/configuracao']" [class.menu-active]="urlAtiva('configuracao')">Configurações <i class="fa fa-gear"></i></a></li>
+                    <li><a href="#" (click)="logout()">Sair <i class="fa fa-sign-out"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Fim menu full -->
+    </header>
+</div>
+
+<div class="row middle-xs menu-options"  *ngIf="!login">
+    <div class="myself">{{ colaborador?.apelido ? colaborador?.apelido : "Usuário" }}</div>
+    <nav>
+        <ul>
+            <li><a [routerLink]="['/configuracao']" [class.menu-active]="urlAtiva('configuracao')">Configurações <i class="fa fa-gear"></i></a></li>
+            <li><a href="#" (click)="logout()">Sair <i class="fa fa-sign-out"></i></a></li>
+        </ul>
+    </nav>
+</div>
